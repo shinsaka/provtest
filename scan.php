@@ -10,21 +10,18 @@
 <?php
 $start_time = microtime(true);
 
-$scan_code = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ,'a', 'b', 'c', 'd', 'e', 'f');
+// $scan_code = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ,'a', 'b', 'c', 'd', 'e', 'f');
 
-foreach ($scan_code as $value) {
+// foreach ($scan_code as $value) {
     $count = 0;
     $fp = fopen('/mnt/output/test.txt', 'r');
-    while (($buf = fgets($fp)) !== false) {
-        if (substr($buf, 9, 1) == $value) {
-            $count++;
-        }
+    while (($buf = fgetc($fp)) !== false) {
     }
     fclose($fp);
-printf("<div>10桁目が %s の行は、%d行ありました。</div>", $value, $count);
-ob_flush();
-flush();
-}
+// printf("<div>10桁目が %s の行は、%d行ありました。</div>", $value, $count);
+// ob_flush();
+// flush();
+// }
 ?>
 
 <h2>処理時間は<?php echo microtime(true) - $start_time ?>秒でした</h2>
