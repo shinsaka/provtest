@@ -11,7 +11,7 @@
 $start_time = microtime(true);
 
 file_put_contents('/mnt/output/test.txt', 'start line' . PHP_EOL);
-for ($i=0; $i<100000; $i++) {
+for ($i=0; $i<1000000; $i++) {
     $data = hash('sha512', $i) . PHP_EOL;
     file_put_contents('/mnt/output/test.txt', $data, FILE_APPEND);
 }
