@@ -21,13 +21,13 @@ foreach ($scan_code as $value) {
         }
     }
     fclose($fp);
-?>
-<h1>10桁目が<?php echo $value ?>の行は、<?php echo $count ?>行ありました。</h1>
-<?php
+printf("<div>10桁目が %s の行は、%d行ありました。</div>", $value, $count);
+ob_flush();
+flush();
 }
 ?>
 
-<div>処理時間は<?php echo microtime(true) - $start_time ?>秒でした</div>
+<h2>処理時間は<?php echo microtime(true) - $start_time ?>秒でした</h2>
 
 </body>
 </html>
